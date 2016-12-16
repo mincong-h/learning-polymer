@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
 
 <dom-module id="my-new-view">
   <!-- Defines the element's style and local DOM -->
@@ -11,6 +12,7 @@
     </style>
 
     <h1>New view</h1>
+    <paper-slider min="-100" max="100" value="50"></paper-slider>
   </template>
   <!-- Creates the element's prototype and registers it -->
   <script>
