@@ -1,0 +1,39 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<!-- Similar to standard DOM elements, Polymer elements can be:
+     - Instantiated using attributes or properties
+     - Styled with internal defaults or externally -->
+<dom-module id="my-view-home">
+  <template>
+    <style include="shared-styles">
+      /* CSS rules for the element */
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+    <!-- local DOM for your element -->
+    <div class="card">
+      <h1>{{home_title}}</h1>
+      <p>{{description}}</p>
+    </div>
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: 'my-view-home',
+      properties: {
+        home_title: {
+          type: String,
+          value: "My App"
+        },
+        description: {
+          type: String,
+          value: "Welcome to GitHub project Learning Polymer JS. Hope you like it!"
+        }
+      }
+    });
+  </script>
+</dom-module>
