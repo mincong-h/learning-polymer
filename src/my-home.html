@@ -15,8 +15,9 @@
     </style>
     <!-- local DOM for your element -->
     <div class="card">
-      <h1>{{home_title}}</h1>
-      <p>{{description}}</p>
+      <h1>Home</h1>
+      <p>Welcome to GitHub project <i>Learning Polymer JS</i>. These pages are
+         the UI components of Inifiot.</p>
     </div>
   </template>
 
@@ -24,16 +25,6 @@
     // element registration
     Polymer({
       is: 'my-view-home',
-      properties: {
-        home_title: {
-          type: String,
-          value: "My App"
-        },
-        description: {
-          type: String,
-          value: "Welcome to GitHub project Learning Polymer JS. Hope you like it!"
-        }
-      }
     });
   </script>
 </dom-module>
