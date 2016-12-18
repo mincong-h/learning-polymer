@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="my-icons.html">
+<link rel="import" href="infiniot-icons.html">
 
 <dom-module id="infiniot-app">
   <template>
@@ -70,10 +70,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="home" href="/home">Home</a>
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
-          <a name="view4" href="/view4">View Four (new)</a>
+          <a name="node" href="/node">Node</a>
+          <a name="sensor" href="/sensor">Sensor</a>
+          <a name="setting" href="/setting">Settings</a>
+          <a name="team" href="/team">Team</a>
         </iron-selector>
       </app-drawer>
 
@@ -90,14 +90,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
-            fallback-selection="view404"
+            fallback-selection="404"
             role="main">
-          <my-view-home name="home"></my-view-home>
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
-          <my-view4 name="view4"></my-view4>
-          <my-view404 name="view404"></my-view404>
+          <view-home name="home"></view-home>
+          <view-node name="node"></view-node>
+          <view-sensor name="sensor"></view-sensor>
+          <view-setting name="setting"></view-setting>
+          <view-team name="team"></view-team>
+          <view-404 name="404"></view-404>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
@@ -125,12 +125,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl('view-' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 
       _showPage404: function() {
-        this.page = 'view404';
+        this.page = '404';
       }
     });
   </script>
