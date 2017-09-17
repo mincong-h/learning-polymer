@@ -102,6 +102,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
   </head>
   <body>
+    <!--
+      DOM module `my-app` is defined in file `./src/my-app.html`.
+      Please notice that class `MyApp` has a static method `is()`
+      which returns the class id:
+
+          static get is() { return 'my-super-app'; }
+
+      So an arbitrary module is defined by:
+      - The DOM module ID
+      - The class static method `is()`
+      And a module can be called in HTML using tag `<my-module-id>`.
+    -->
     <my-app></my-app>
     <noscript>
       Please enable JavaScript to view this website.
