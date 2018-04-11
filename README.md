@@ -2,9 +2,16 @@
 
 ## Installation
 
-Install bower and Polymer CLI. Then initialize the starter-kit V2.
+Install bower and Polymer CLI.
 
     $ npm install -g bower polymer-cli
+    $ npm -version
+    5.6.0
+    $ polymer --version
+    1.6.0
+
+Then initialize the starter-kit V2.
+
     $ polymer init polymer-2-starter-kit
 
 # Polymer App Toolbox - Starter Kit
