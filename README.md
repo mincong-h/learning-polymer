@@ -10,11 +10,20 @@ Install bower and Polymer CLI.
     $ polymer --version
     1.6.0
 
-Then initialize the starter-kit V2.
+Build the app
 
-    $ polymer init polymer-2-starter-kit
+    $ bower install
+    $ polymer build
+
+Run in Polymer CLI
+
+     $ polymer serve
 
 ## Polymer App Toolbox - Starter Kit
+
+My application is modified from Polymer App Toolbox - Starter Kit.
+
+    $ polymer init polymer-2-starter-kit
 
 This template is a starting point for building apps using a drawer-based
 layout. The layout is provided by `app-layout` elements.
