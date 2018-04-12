@@ -23,17 +23,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="card">
       <div class="circle">1</div>
       <h1>New Reservation</h1>
-      <p>You can book you ticket here.</p>
+      <p>
+        You can book you ticket here. Current plan:
+        from <i>{{ from }}</i> to <i>{{ to }}</i>.
+      </p>
       <div>
         From:
-        <select>
+        <select id="from">
           <option value="paris">Paris</option>
           <option value="beijing">Beijing</option>
           <option value="guangzhou">Guangzhou</option>
           <option value="tangshan">Tangshan</option>
         </select>
         To:
-        <select>
+        <select id="to">
           <option value="paris">Paris</option>
           <option value="beijing">Beijing</option>
           <option value="guangzhou">Guangzhou</option>
@@ -65,8 +68,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
 
+      // Public properties
+      static get properties() {
+        return {
+          from: {
+            type: String,
+            value: "Undefined"
+          },
+          to: {
+            type: String,
+            value: "Undefined"
+          }
+        }
+      }
+
+      // Public methods
       reserve() {
         console.log('Reserving ticket for you...');
+        var xArr = this.shadowRoot.querySelector('#from');
+        var yArr = this.shadowRoot.querySelector('#to');
+        var x = xArr[xArr.selectedIndex].value;
+        var y = yArr[yArr.selectedIndex].value;
+        console.log('From ' + x + ' to ' + y);
       }
     }
 
