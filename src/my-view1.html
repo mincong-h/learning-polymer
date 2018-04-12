@@ -40,13 +40,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <option value="tangshan">Tangshan</option>
         </select>
       </div>
-      <button onclick="console.log('Reservation confirmed.')">Confirm</button>
+      <!--
+        In the button below, you can register an event handler using syntax:
+
+            on-${event}
+
+        For example, registering a click event can be done by adding attribute
+        "on-click". The value of on-click event is the name of the method,
+        defined in the element class. Note: there's no parentheses "()" after
+        the method name.
+
+        This syntax is different from the standard DOM handlers, which uses
+        event type without hyphen '-':
+
+            on${event}
+
+        See: https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+       -->
+      <button on-click="reserve">Confirm</button>
     </div>
   </template>
 
   <script>
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
+
+      reserve() {
+        console.log('Reserving ticket for you...');
+      }
     }
 
     window.customElements.define(MyView1.is, MyView1);
