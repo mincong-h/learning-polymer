@@ -19,6 +19,22 @@ Run in Polymer CLI
 
      $ polymer serve
 
+## Testing
+
+> Enable remote automation in Safari. By default, Safari does not allow remote
+> automation, you must enable this option to make it work:
+>
+> 1. Preferences > Advanced > Show Developer menu in menu bar
+> 2. Develop > Allow Remote Automation
+
+Run Polymer tests on local browers:
+
+    $ polymer test
+
+# Deprecated
+
+The following content is deprecated.
+
 ## Polymer App Toolbox - Starter Kit
 
 My application is modified from Polymer App Toolbox - Starter Kit.
