@@ -4,11 +4,10 @@
 
 Install bower and Polymer CLI.
 
-    $ npm install -g bower polymer-cli
     $ npm -version
-    5.6.0
-    $ polymer --version
-    1.6.0
+    3.10.10
+    $ npm install -g polymer-cli@1.6.0
+    $ npm install -g bower@1.8.4
 
 Build the app
 
