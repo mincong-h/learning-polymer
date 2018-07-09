@@ -25,23 +25,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h1>New Reservation</h1>
       <p>
         You can book you ticket here. Current plan:
-        from <i>{{ reservation.from }}</i> to <i>{{ reservation.to }}</i>.
+        from <i>[[ reservation.from ]]</i> to <i>[[ reservation.to ]]</i>.
       </p>
       <div>
-        From:
-        <select id="from">
-          <option value="Paris">Paris</option>
-          <option value="Beijing">Beijing</option>
-          <option value="Guangzhou">Guangzhou</option>
-          <option value="Tangshan">Tangshan</option>
-        </select>
-        To:
-        <select id="to">
-          <option value="Paris">Paris</option>
-          <option value="Beijing">Beijing</option>
-          <option value="Guangzhou">Guangzhou</option>
-          <option value="Tangshan">Tangshan</option>
-        </select>
+        <!--
+          Custom change notification events
+
+          To support two-way data binding of native input elements,
+          Polymer lets you associate a custom change notification
+          event with a data binding.
+         -->
+        <label for="from">From:</label>
+        <input id="input-from" name="from" value="{{ reservation.from::input }}">
+        <label for="to">To:</label>
+        <input id="input-to" name="to" value="{{ reservation.to::input }}">
       </div>
       <!--
         In the button below, you can register an event handler using syntax:
@@ -82,12 +79,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       // Public methods
       reserve() {
-        console.log('Reserving ticket for you...');
-        var xArr = this.shadowRoot.querySelector('#from');
-        var yArr = this.shadowRoot.querySelector('#to');
-        var x = xArr[xArr.selectedIndex].value;
-        var y = yArr[yArr.selectedIndex].value;
-        console.log('From ' + x + ' to ' + y);
+        var msg = 'Reserve ticket: ' + this.reservation.from;
+        msg += ' to ' + this.reservation.to;
+        console.log(msg);
 
         // Unobservable: change sub-property of an object directly
         // this.reservation.from = x
@@ -98,7 +92,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // this.set('reservation.to', y);
 
         // Observable: change host property (direct property)
-        this.reservation = { from: x, to: y };
+        // this.reservation = { from: x, to: y };
       }
     }
 
