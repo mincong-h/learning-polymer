@@ -1,4 +1,4 @@
-# Learning Polymer
+# Learning Polymer [![Build status][travis-img]][travis]
 
 ## Installation
 
@@ -129,3 +129,6 @@ application. Each new demand-loaded fragment should be added to the list of
 `fragments` in the included `polymer.json` file. This will ensure those
 components and their dependencies are added to the list of pre-cached components
 and will be included in the build.
+
+[travis]: https://travis-ci.org/mincong-h/learning-polymer
+[travis-img]: https://travis-ci.org/mincong-h/learning-polymer.svg?branch=master

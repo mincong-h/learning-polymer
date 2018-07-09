@@ -1,0 +1,23 @@
+language: node_js
+sudo: required
+dist: trusty
+addons:
+  firefox: '46.0'
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+node_js:
+  # Polymer CLI requires Node 6+
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+before_script:
+  # Fix NPM package version
+  - npm install -g polymer-cli@1.6.0
+  - npm install -g bower@1.8.4
+  - bower install
+script:
+  - xvfb-run polymer test
