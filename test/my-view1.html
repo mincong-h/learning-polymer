@@ -31,18 +31,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </test-fixture>
 
     <script>
-      suite('my-view1 tests', function () {
-        test('Number in circle should be 1', function () {
+      suite('my-view1 tests', function() {
+        test('Number in circle should be 1', function() {
           var view = fixture('BasicView');
           var circle = view.shadowRoot.querySelector('.circle');
           assert.equal(circle.textContent, '1');
         });
-        test('Description should change when input changes', function () {
+        test('Description should change when input changes', function() {
           var view = fixture('BasicView');
           var p = view.shadowRoot.querySelector('#description');
           assert.include(p.textContent, 'from (empty) to (empty)');
 
-          view.shadowRoot.host.reservation = { from: 'A', to: 'B' };
+          view.shadowRoot.host.reservation = {from: 'A', to: 'B'};
           assert.include(p.textContent, 'from A to B');
         });
       });

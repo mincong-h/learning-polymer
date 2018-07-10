@@ -20,4 +20,5 @@ before_script:
   - npm install -g bower@1.8.4
   - bower install
 script:
+  - npm run lint
   - xvfb-run polymer test

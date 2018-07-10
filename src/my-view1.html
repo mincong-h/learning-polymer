@@ -73,15 +73,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // Public properties
       static get properties() {
         return {
-          reservation: Object
-        }
+          reservation: Object,
+        };
       }
 
       // Public methods
       reserve() {
         var msg = 'Reserve ticket: ' + this.reservation.from;
         msg += ' to ' + this.reservation.to;
-        console.log(msg);
+        document.alert(msg);
 
         // Unobservable: change sub-property of an object directly
         // this.reservation.from = x
