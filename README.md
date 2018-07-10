@@ -26,9 +26,18 @@ Run in Polymer CLI
 > 1. Preferences > Advanced > Show Developer menu in menu bar
 > 2. Develop > Allow Remote Automation
 
-Run Polymer tests on local browers:
+Run Polymer tests on local machine. This command will run
+[Web Component Tester](https://github.com/Polymer/web-component-tester)
+against the browsers currently installed on your machine:
 
     $ polymer test
+
+If running Windows, you will need to set the following environment variables:
+
+- LAUNCHPAD\_BROWSERS
+- LAUNCHPAD\_CHROME
+
+Read More here [daffl/launchpad](https://github.com/daffl/launchpad#environment-variables-impacting-local-browsers-detection)
 
 # Deprecated
 
@@ -105,20 +114,6 @@ Run `polymer help build` for the full list of available options and optimization
 This command serves your app. Replace `build-folder-name` with the folder name of the build you want to serve.
 
     polymer serve build/build-folder-name/
-
-### Run tests
-
-This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
-against the browsers currently installed on your machine:
-
-    polymer test
-
-If running Windows you will need to set the following environment variables:
-
-- LAUNCHPAD_BROWSERS
-- LAUNCHPAD_CHROME
-
-Read More here [daffl/launchpad](https://github.com/daffl/launchpad#environment-variables-impacting-local-browsers-detection)
 
 ### Adding a new view
 
