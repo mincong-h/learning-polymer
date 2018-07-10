@@ -12,7 +12,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
     <title>my-view1</title>
 
@@ -30,11 +31,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </test-fixture>
 
     <script>
-      suite('my-view1 tests', function() {
-        test('Number in circle should be 1', function() {
-          var myView = fixture('BasicView');
-          var circle = myView.shadowRoot.querySelector('.circle');
+      suite('my-view1 tests', function () {
+        test('Number in circle should be 1', function () {
+          var view = fixture('BasicView');
+          var circle = view.shadowRoot.querySelector('.circle');
           assert.equal(circle.textContent, '1');
+        });
+        test('Description should change when input changes', function () {
+          var view = fixture('BasicView');
+          var p = view.shadowRoot.querySelector('#description');
+          assert.include(p.textContent, 'from (empty) to (empty)');
+
+          view.shadowRoot.host.reservation = { from: 'A', to: 'B' };
+          assert.include(p.textContent, 'from A to B');
         });
       });
     </script>
