@@ -39,6 +39,33 @@ If running Windows, you will need to set the following environment variables:
 
 Read More here [daffl/launchpad](https://github.com/daffl/launchpad#environment-variables-impacting-local-browsers-detection)
 
+## Advanced Features in NPM
+
+NPM configuration is defined in `package.json`. You can do `npm-run-script` or
+`npm-run` to run customized script defined in this project:
+
+```sh
+$ npm run
+# Lifecycle scripts included in polymer-starter-kit:
+#   test
+#     polymer test
+#
+# available via `npm run-script`:
+#   lint
+#     npm run lint:javascript && polymer lint
+#   lint:javascript
+#     eslint . --ext js,html --ignore-path .gitignore
+#   test:integration
+#     polymer build # test that psk builds without error with the CLI
+$ npm run <script>
+```
+
+For example, run JavaScript lint and Polymer lint using `lint` script:
+
+```
+$ npm run lint
+```
+
 # Deprecated
 
 The following content is deprecated.
