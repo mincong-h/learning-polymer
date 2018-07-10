@@ -66,6 +66,18 @@ For example, run JavaScript lint and Polymer lint using `lint` script:
 $ npm run lint
 ```
 
+## Configuration Files
+
+File | Description
+:--- | :---
+`.eslintrc.json` | [ESLint][1] tool run commands configuration.
+`bower.json` | Bower dependencies and configuration.
+`manifest.json` | Web App manifest.
+`package.json` | NPM package dpendencies and configuration.
+`polymer.json` | Polymer structure and organization.
+
+[1]: https://www.npmjs.com/package/eslint
+
 # Deprecated
 
 The following content is deprecated.
