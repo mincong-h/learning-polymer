@@ -9,6 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view2">
@@ -16,21 +17,91 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles">
       :host {
         display: block;
-
         padding: 10px;
       }
     </style>
 
     <div class="card">
       <div class="circle">2</div>
-      <h1>My Reservations</h1>
-      <p>Here're your reservations.</p>
+      <h1>Search</h1>
+      <p>Searching <i>&#34;[[ queryString ]]&#34;</i>...</p>
+      <input id="search-input"
+             value="{{ queryString::input }}"
+             on-click="enableSearch"><!-- no parentheses -->
+      <ul>
+        <dom-repeat items="[[ searchHistory ]]">
+          <template>
+            <li>[[ item ]]</li>
+          </template>
+        </dom-repeat>
+      </ul>
     </div>
   </template>
 
   <script>
     class MyView2 extends Polymer.Element {
-      static get is() { return 'my-view2'; }
+      static get is() {
+        return 'my-view2';
+      }
+
+      static get properties() {
+        return {
+          queryString: Object,
+          searchHistory: Object,
+        };
+      }
+
+      constructor() {
+        super();
+        this.queryString = 'Country, city, keyword...';
+        this.isSearching = false;
+        this.pendingKey = null;
+        this.searchHistory = ['Record 3', 'Record 2', 'Record 1'];
+      }
+
+      ready() {
+        super.ready();
+        window.addEventListener('keydown', (e) => this._handleKeydown(e));
+      }
+
+      enableSearch() {
+        this.isSearching = true;
+      }
+
+      _handleKeydown(e) {
+        // console.log(e.key);
+        if (this.isSearching) {
+          if (e.key === 'Enter') {
+            this._doSearch();
+          }
+        } else if (e.key === 'Meta') {
+          this.pendingKey = e.key;
+        } else if (e.key === 'k' && this.pendingKey) {
+          this._doStart();
+        } else {
+          this.pendingKey = null;
+        }
+      }
+
+      _doStart() {
+        document.getElementById('search-input').focus();
+        this.pendingKey = null;
+        this.isSearching = true;
+      }
+
+      _doSearch() {
+        // search
+        // TODO
+
+        // after search
+        // Array Mutation
+        // https://www.polymer-project.org/2.0/docs/devguide/model-data#array-mutation
+        this.push('searchHistory', this.queryString);
+        if (this.searchHistory.length >= 3) {
+          this.shift('searchHistory');
+          // console.table(this.searchHistory);
+        }
+      }
     }
 
     window.customElements.define(MyView2.is, MyView2);
